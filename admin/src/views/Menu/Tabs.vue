@@ -108,6 +108,6 @@ export default {
 
 <style scoped lang="scss">
 .Tabs {
-
+  height: 40px;
 }
 </style>

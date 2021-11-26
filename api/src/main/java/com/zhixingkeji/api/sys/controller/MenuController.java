@@ -65,6 +65,8 @@ public class MenuController extends BaseController{
         return ResultTemplate.success(menus);
     }
 
+
+
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('sys:menu:save')")
     public ResultTemplate save(@Validated @RequestBody Menu menu) {
@@ -74,6 +76,8 @@ public class MenuController extends BaseController{
         menuService.save(menu);
         return ResultTemplate.success(menu);
     }
+
+
 
     @PostMapping("/update")
     @PreAuthorize("hasAuthority('sys:menu:update')")
@@ -87,6 +91,8 @@ public class MenuController extends BaseController{
         userService.clearUserAuthorityInfoByMenuId(menu.getId());
         return ResultTemplate.success(menu);
     }
+
+
 
     @PostMapping("/delete/{id}")
     @PreAuthorize("hasAuthority('sys:menu:delete')")

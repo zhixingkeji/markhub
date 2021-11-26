@@ -31,7 +31,7 @@
       </el-table-column>
 
       <!--      标识-->
-      <el-table-column prop="role" label="标识"  width="180">
+      <el-table-column prop="code" label="标识"  width="180">
       </el-table-column>
 
       <!--      描述-->
@@ -48,10 +48,10 @@
 
 
       <!--      状态-->
-      <el-table-column prop="status" label="状态"  width="150">
+      <el-table-column prop="statu" label="状态"  width="150">
         <template #default="scope">
-          <el-tag type="success" v-if="scope.row.status === 1">正常</el-tag>
-          <el-tag type="danger" v-else-if="scope.row.status === 0">禁用</el-tag>
+          <el-tag type="success" v-if="scope.row.statu === 1">正常</el-tag>
+          <el-tag type="danger" v-else-if="scope.row.statu === 0">禁用</el-tag>
         </template>
       </el-table-column>
 
@@ -96,9 +96,9 @@ export default {
         {
           id: '',
           name: '',
-          role: "",
+          code: "",
           remark: "",
-          status: "",
+          statu: "",
         })
 
     let tableData =ref([])
@@ -107,8 +107,10 @@ export default {
     //获取角色的表格数据
     async function getRoleTableData () {
       const {data} = await getRoleTable()
-      tableData.value = data
-      console.log(tableData)
+      tableData.value = data.records
+      // console.log(data)
+      // console.log(data.records)
+      // console.log(tableData.value)
     }
     getRoleTableData()
 

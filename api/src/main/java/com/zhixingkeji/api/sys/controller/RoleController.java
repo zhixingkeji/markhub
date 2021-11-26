@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/sys/role")
 public class RoleController extends BaseController{
 
-//    获取详情
+    //    获取详情
     @PreAuthorize("hasAuthority('sys:role:list')")
     @GetMapping("/info/{id}")
     public ResultTemplate info(@PathVariable("id") Long id) {

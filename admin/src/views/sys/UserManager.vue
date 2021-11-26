@@ -22,21 +22,29 @@
         border
         stripe
         default-expand-all
-        :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
     >
 
 
       <!--      名称-->
-      <el-table-column prop="name" label="名称"  width="180">
+      <el-table-column prop="username" label="名称"  width="180">
       </el-table-column>
 
       <!--      头像-->
-      <el-table-column prop="avater" label="头像"  width="180">
+      <el-table-column prop="avatar" label="头像"  width="72">
+        <template #default="scope">
+          <img :src="scope.row.avatar" alt="" style="height: 40px;weight: 40px;"/>
+        </template>
       </el-table-column>
 
       <!--      拥有角色-->
-      <el-table-column prop="hasRoles" label="拥有角色"  >
+      <el-table-column prop="roles" label="拥有角色" width="180" >
+        <template #default="scope">
+          <el-tag size="small" v-for="item in scope.row.roles" style="margin: 5px">{{ item.code }} </el-tag>
+        </template>
+
       </el-table-column>
+
+
 
       <!--      邮箱-->
       <el-table-column prop="email" label="邮箱"  width="180">
@@ -102,7 +110,7 @@ export default {
     //编辑数据模型
     let editFrom = ref(
         {
-          name: '',
+          username: '',
           avater: '',
           hasRoles: "",
           email: "",
@@ -113,11 +121,12 @@ export default {
     //表格数据模型
     let tableData =ref([])
 
-    //获取角色的表格数据
+    //获取用户的表格数据
     async function getUserTableData () {
       const {data} = await getUserTable()
-      tableData.value = data
-      console.log(tableData)
+      tableData.value = data.records
+      console.log(data.records)
+      console.log(tableData.value)
     }
     getUserTableData()
 

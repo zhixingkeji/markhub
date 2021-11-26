@@ -10,6 +10,16 @@ const routes = [
         name: 'Home',
         component: () => import('@/views/Home.vue'),
         children: [
+            {
+                path: '/home/index',
+                name: 'Index',
+                component: () => import('@/views/Home/Index.vue'),
+            },
+            {
+                path: '/home/usercenter',
+                name: 'UserCenter',
+                component: () => import('@/views/Home/UserCenter.vue'),
+            }
         ]
 
     },
@@ -90,19 +100,6 @@ const routerPackag = nav => {
             router.addRoute("Home",route)
         })
     })
-
-
-    // router.addRoute("Home", {
-    //     path: `${itemRouter.path}`,
-    //     name: itemRouter.name,
-    //     component: () => import(`@/${itemRouter.component}`)
-    // });
-    //
-    // // 是否存在子集
-    // if (itemRouter.children && itemRouter.children.length) {
-    //     routerPackag(itemRouter.children);
-    // }
-
 };
 
 

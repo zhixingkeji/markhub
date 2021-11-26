@@ -37,7 +37,7 @@
       </el-table-column>
 
       <!--      权限-->
-      <el-table-column prop="perm" label="权限" sortable width="180">
+      <el-table-column prop="perms" label="权限" sortable width="180">
       </el-table-column>
 
       <!--      图标-->
@@ -62,7 +62,7 @@
       </el-table-column>
 
       <!--      排序-->
-      <el-table-column prop="orderNum" label="排序">
+      <el-table-column prop="ordernum" label="排序">
       </el-table-column>
 
       <!--      时间-->
@@ -75,10 +75,10 @@
 
 
       <!--      状态-->
-      <el-table-column prop="status" label="状态">
+      <el-table-column prop="statu" label="状态">
         <template #default="scope">
-          <el-tag type="success" v-if="scope.row.status === 1">正常</el-tag>
-          <el-tag type="danger" v-else-if="scope.row.status === 0">禁用</el-tag>
+          <el-tag type="success" v-if="scope.row.statu === 1">正常</el-tag>
+          <el-tag type="danger" v-else-if="scope.row.statu === 0">禁用</el-tag>
         </template>
       </el-table-column>
 
@@ -159,7 +159,7 @@
         </el-form-item>
 
         <el-form-item label="状态">
-          <el-switch v-model="editFrom.status"></el-switch>
+          <el-switch v-model="editFrom.statu"></el-switch>
         </el-form-item>
 
         <el-form-item label="排序">
@@ -209,7 +209,7 @@ export default defineComponent({
       icon: "",
       url: "",
       type: 0,
-      status: 0,
+      statu: 0,
       order: "",
 
     })

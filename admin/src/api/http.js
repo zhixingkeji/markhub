@@ -29,18 +29,18 @@ export const getMenuList = (data)=>{
 //获取菜单管理页面的数据
 
 export const getMenuTable = (data)=>{
-    return $http.get("/getMenuTable",data)
+    return $http.get("/sys/menu/list",data)
 }
 
 
 //获取角色管理页面数据
 export const getRoleTable = (data)=>{
-    return $http.get("/getRoleTable",data)
+    return $http.get("/sys/role/list",data)
 }
 
 //获取用户管理页面数据
 export const getUserTable = (data)=>{
-    return $http.get("/getUserTable",data)
+    return $http.get("/sys/user/list",data)
 }
 
 
